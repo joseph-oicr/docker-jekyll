@@ -22,61 +22,60 @@ mapped to `/home/jekyll/doc-root`
     ```bash
     docker run -v ~/my-proj:/home/jekyll/doc-root -p4000:4000 -t -i fstab/jekyll
     ```
-
+    
 2. Go to the `doc-root` directory
-
-```bash
-cd /home/jekyll/doc-root
-```
-
+    
+    ```bash
+    cd /home/jekyll/doc-root
+    ```
+    
 3. Update jekyll.
-
-If you have a `Gemfile` in your [GitHub Pages](https://pages.github.com), run
-
-```bash
-sudo bundle update
-```
-
-If you don't use `Gemfile`, run
-
-```bash
-sudo gem update github-pages
-```
-
+    
+    If you have a `Gemfile` in your [GitHub Pages](https://pages.github.com), run
+    
+    ```bash
+    sudo bundle update
+    ```
+    
+    If you don't use `Gemfile`, run
+    
+    ```bash
+    sudo gem update github-pages
+    ```
+    
 4. Serve your project
-
-```bash
-jekyll serve --host=0.0.0.0 --watch
-```
+    
+    ```bash
+    jekyll serve --host=0.0.0.0 --watch
+    ```
 
 You can access the jekyll pages on the docker container's IP address, port 4000, or on boot2docker's IP address, port 4000.
-
 
 How To Create New GitHub Pages
 ------------------------------
 
-1) Start the Docker container and go to `/home/jekyll/doc-root` as described above.
-
-2) Generate a new jekyll site
-
-```bash
-jekyll new ~/doc-root
-```
-
-3) Create a file called `Gemfile` with the following content:
-
-```
-source 'https://rubygems.org'
-gem 'github-pages'
-```
-
-4) Update
-
-```
-sudo bundle update
-```
-
-5) Serve with `jekyll serve` as described above.
+1. Start the Docker container and go to `/home/jekyll/doc-root` as described above.
+    
+2. Generate a new jekyll site
+    
+    ```bash
+    jekyll new ~/doc-root
+    ```
+    
+3. Create a file called `Gemfile` with the following content:
+    
+    ```
+    source 'https://rubygems.org'
+    gem 'github-pages'
+    ```
+    
+4. Update
+    
+    ```
+    sudo bundle update
+    ```
+    
+5. Serve with `jekyll serve` as described above.
 
 Build from Source
 -----------------
