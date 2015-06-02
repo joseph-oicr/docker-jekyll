@@ -29,7 +29,7 @@ mapped to `/home/jekyll/doc-root`
     cd /home/jekyll/doc-root
     ```
     
-3. Update jekyll.
+3. Update [jekyll](http://jekyllrb.com).
     
     If you have a `Gemfile` in your [GitHub Pages](https://pages.github.com), run
     
@@ -75,26 +75,20 @@ How To Create New GitHub Pages
     sudo bundle update
     ```
     
-5. Serve with `jekyll serve` as described above.
+5. Serve your project, as described above
 
-Build from Source
------------------
+Building the Docker Image from Source
+-------------------------------------
 
 1. Make sure [Docker](https://www.docker.com) is installed.
-2. Clone [fstab/docker-mutt](https://github.com/fstab/docker-mutt) from GitHub.
+2. Clone [fstab/docker-jekyll](https://github.com/fstab/docker-jekyll) from GitHub.
    
    ```bash
-   git clone https://github.com/fstab/docker-mutt.git
+   git clone https://github.com/fstab/docker-jekyll.git
    ```
 3. Build the docker image
    
    ```bash
-   cd docker-mutt
-   docker build -t="fstab/mutt" .
-   ```
-   
-4. Once the configuration is is created _on the host system_, the docker container can be run as follows:
-   
-   ```bash
-   docker run -v ~/.mutt:/home/mutt -t -i fstab/mutt
+   cd docker-jekyll
+   docker build -t="fstab/jekyll" .
    ```
