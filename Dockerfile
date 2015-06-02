@@ -20,14 +20,13 @@ RUN apt-get -y install \
     python \
     ruby \
     ruby-dev \
+    sudo \
     vim \
     zlib1g-dev
 
 RUN gem install \
     bundler \
     github-pages
-
-RUN apt-get -y install sudo
 
 RUN adduser --disabled-login --gecos '' jekyll
 WORKDIR /home/jekyll
