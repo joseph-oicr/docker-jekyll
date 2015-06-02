@@ -12,16 +12,16 @@ If you already have your [GitHub Pages](https://pages.github.com) checked out in
 
 1. Run the docker image with your [GitHub Pages](https://pages.github.com)
 mapped to `/home/jekyll/doc-root`
-
-```bash
-docker run -v ~/my-proj:/home/jekyll/doc-root -t -i fstab/jekyll
-```
-
-or, if you are using `boot2docker`
-
-```bash
-docker run -v ~/my-proj:/home/jekyll/doc-root -p4000:4000 -t -i fstab/jekyll
-```
+    
+    ```bash
+    docker run -v ~/my-proj:/home/jekyll/doc-root -t -i fstab/jekyll
+    ```
+    
+    or, if you are using `boot2docker`
+    
+    ```bash
+    docker run -v ~/my-proj:/home/jekyll/doc-root -p4000:4000 -t -i fstab/jekyll
+    ```
 
 2. Go to the `doc-root` directory
 
