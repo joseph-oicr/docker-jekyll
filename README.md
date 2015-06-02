@@ -20,7 +20,7 @@ mapped to `/home/jekyll/doc-root`
     or, if you are using `boot2docker`
     
     ```bash
-    docker run -v ~/my-proj:/home/jekyll/doc-root -p4000:4000 -t -i fstab/jekyll
+    docker run -v ~/my-proj:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll
     ```
     
 2. Go to the `doc-root` directory
