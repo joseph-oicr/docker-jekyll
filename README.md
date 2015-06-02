@@ -3,33 +3,33 @@ docker-jekyll
 
 Run [jekyll](http://jekyllrb.com) in a [Docker](http://docker.io) container without installing [jekyll](http://jekyllrb.com) on your host system.
 
-This is mainly intended for trying out [GitHub Pages](https://pages.github.com) before commit.
+This is mainly intended for trying out [GitHub Pages](https://pages.github.com) locally before committing them.
 
 How To Serve Existing GitHub Pages
 ----------------------------------
 
 If you already have your [GitHub Pages](https://pages.github.com) checked out in a local directory `~/my-proj`, do the following:
 
-1) Run the docker image with your [GitHub Pages](https://pages.github.com)
+1. Run the docker image with your [GitHub Pages](https://pages.github.com)
 mapped to `/home/jekyll/doc-root`
 
 ```bash
 docker run -v ~/my-proj:/home/jekyll/doc-root -t -i fstab/jekyll
 ```
 
-or, if you are using _boot2docker_
+or, if you are using `boot2docker`
 
 ```bash
 docker run -v ~/my-proj:/home/jekyll/doc-root -p4000:4000 -t -i fstab/jekyll
 ```
 
-2) Go to the `doc-root` directory
+2. Go to the `doc-root` directory
 
 ```bash
 cd /home/jekyll/doc-root
 ```
 
-2) Update jekyll.
+3. Update jekyll.
 
 If you have a `Gemfile` in your [GitHub Pages](https://pages.github.com), run
 
@@ -43,7 +43,7 @@ If you don't use `Gemfile`, run
 sudo gem update github-pages
 ```
 
-3) Serve your project
+4. Serve your project
 
 ```bash
 jekyll serve --host=0.0.0.0 --watch
