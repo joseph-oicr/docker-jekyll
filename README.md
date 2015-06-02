@@ -87,13 +87,14 @@ Building the Docker Image from Source
 
 1. Make sure [Docker](https://www.docker.com) is installed.
 2. Clone [fstab/docker-jekyll](https://github.com/fstab/docker-jekyll) from GitHub.
-   
-   ```bash
-   git clone https://github.com/fstab/docker-jekyll.git
-   ```
+    
+    ```bash
+    git clone https://github.com/fstab/docker-jekyll.git
+    ```
+    
 3. Build the docker image
-   
-   ```bash
-   cd docker-jekyll
-   docker build -t="fstab/jekyll" .
-   ```
+    
+    ```bash
+    cd docker-jekyll
+    docker build -t="fstab/jekyll" .
+    ```
