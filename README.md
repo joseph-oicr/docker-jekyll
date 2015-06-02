@@ -77,7 +77,7 @@ How To Create New GitHub Pages
 5. Add the following line to the end of the generated `_config.yml` to stop Jekyll including the `Gemfile` in it’s site.
     
     ```
-    exclude ['Gemfile','Gemfile.lock']
+    exclude: ['Gemfile','Gemfile.lock']
     ```
     
 5. Serve your project, as described above
