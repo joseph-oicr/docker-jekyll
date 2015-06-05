@@ -60,7 +60,7 @@ The commands above are a lot to type. Fortunally, all of them can be put in a si
 docker run -v ~/go/src/github.com/fstab/h2c-pages:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll bash -c 'cd /home/jekyll/doc-root; sudo bundle update; jekyll serve --host=0.0.0.0 --watch'
 ```
 
-If you are useing a `bash` shell, you can create an alias for that line like this:
+If you are useing the `bash` shell, you can create an alias for that line like this:
 
 ```bash
 alias jekyll="docker run -v ~/go/src/github.com/fstab/h2c-pages:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll bash -c 'cd /home/jekyll/doc-root; sudo bundle update; jekyll serve --host=0.0.0.0 --watch'"
