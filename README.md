@@ -51,7 +51,7 @@ mapped to `/home/jekyll/doc-root`
 
 You can access the jekyll pages on the docker container's IP address, port 4000, or on boot2docker's IP address, port 4000.
 
-Make it a Single Line
+Make it a Single Command
 ---------------------
 
 The commands above are a lot to type. Fortunally, all of them can be put in a single line:
