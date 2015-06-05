@@ -51,6 +51,27 @@ mapped to `/home/jekyll/doc-root`
 
 You can access the jekyll pages on the docker container's IP address, port 4000, or on boot2docker's IP address, port 4000.
 
+Make it a Single Line
+---------------------
+
+The commands above are a lot to type. Fortunally, all of them can be put in a single line:
+
+```bash
+docker run -v ~/go/src/github.com/fstab/h2c-pages:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll bash -c 'cd /home/jekyll/doc-root;udo bundle update; jekyll serve --host=0.0.0.0 --watch'
+```
+
+If you are useing a `bash` shell, you can create an alias for that line like this:
+
+```bash
+alias jekyll="docker run -v ~/go/src/github.com/fstab/h2c-pages:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll bash -c 'cd /home/jekyll/doc-root;udo bundle update; jekyll serve --host=0.0.0.0 --watch'"
+```
+
+Now, the whole thing can be run as
+
+```bash
+jekyll
+```
+
 How To Create New GitHub Pages
 ------------------------------
 
@@ -86,6 +107,7 @@ Building the Docker Image from Source
 -------------------------------------
 
 1. Make sure [Docker](https://www.docker.com) is installed.
+    
 2. Clone [fstab/docker-jekyll](https://github.com/fstab/docker-jekyll) from GitHub.
     
     ```bash
