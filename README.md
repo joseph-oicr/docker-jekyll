@@ -54,13 +54,13 @@ You can access the jekyll pages on the docker container's IP address, port 4000,
 Make it a Single Command
 ---------------------
 
-The commands above are a lot to type. Fortunally, all of them can be put in a single line:
+The commands above are a lot to type. Fortunately, all of them can be put in a single line:
 
 ```bash
 docker run -v ~/my-proj:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll bash -c 'cd /home/jekyll/doc-root; sudo bundle update; jekyll serve --host=0.0.0.0 --force_polling'
 ```
 
-If you are useing the `bash` shell, you can create an alias for that line like this:
+If you are using the `bash` shell, you can create an alias for that line like this:
 
 ```bash
 alias jekyll="docker run -v ~/my-proj:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll bash -c 'cd /home/jekyll/doc-root; sudo bundle update; jekyll serve --host=0.0.0.0 --force_polling'"
