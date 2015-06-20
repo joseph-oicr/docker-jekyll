@@ -34,3 +34,10 @@ RUN echo "jekyll ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER jekyll
 
 EXPOSE 4000
+
+# The original Docker image was built with github-pages 37. Update to github-pages 38.
+USER root
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    gem update bundler github-pages
+USER jekyll
