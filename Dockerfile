@@ -1,6 +1,8 @@
 FROM ubuntu:15.04
 MAINTAINER Fabian Stäber, fabian@fstab.de
 
+ENV LAST_UPDATE=2015-09-24
+
 RUN apt-get update && \
     apt-get upgrade -y
 
