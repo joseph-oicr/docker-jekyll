@@ -1,4 +1,4 @@
-FROM ubuntu:15.04
+FROM ubuntu:15.10
 MAINTAINER Fabian Stäber, fabian@fstab.de
 
 ENV LAST_UPDATE=2016-01-22
@@ -26,6 +26,21 @@ RUN apt-get -y install \
     vim \
     zlib1g-dev
 
+# Default ruby version is 2.1, but github-pages requires ruby 2.2
+
+RUN apt-get -y install \
+    ruby2.2 \
+    ruby2.2-dev
+
+RUN update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby2.2 400 \
+    --slave /usr/bin/rake rake /usr/bin/rake2.2  \
+    --slave /usr/bin/ri ri /usr/bin/ri2.2  \
+    --slave /usr/bin/rdoc rdoc /usr/bin/rdoc2.2  \
+    --slave /usr/bin/gem gem /usr/bin/gem2.2  \
+    --slave /usr/bin/irb irb /usr/bin/irb2.2
+
+# Now the ruby version is 2.2. Continue installing gh-pages.
+
 RUN gem install \
     bundler \
     github-pages
@@ -36,10 +51,3 @@ RUN echo "jekyll ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER jekyll
 
 EXPOSE 4000
-
-# The original Docker image was built with github-pages 37. Update to github-pages 38.
-USER root
-RUN apt-get update && \
-    apt-get -y upgrade && \
-    gem update bundler github-pages
-USER jekyll
