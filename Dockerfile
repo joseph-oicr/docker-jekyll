@@ -1,7 +1,7 @@
 FROM ubuntu:15.10
 MAINTAINER Fabian Stäber, fabian@fstab.de
 
-ENV LAST_UPDATE=2016-01-22
+ENV LAST_UPDATE=2016-03-09
 
 RUN apt-get update && \
     apt-get upgrade -y
