@@ -10,60 +10,14 @@ How To Serve Existing GitHub Pages
 
 If you already have your [GitHub Pages](https://pages.github.com) checked out in a local directory `~/my-proj`, do the following:
 
-1. Run the docker image with your [GitHub Pages](https://pages.github.com)
-mapped to `/home/jekyll/doc-root`
-    
-    ```bash
-    docker run -v ~/my-proj:/home/jekyll/doc-root -t -i fstab/jekyll
-    ```
-    
-    or, if you are using `boot2docker`
-    
-    ```bash
-    docker run -v ~/my-proj:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll
-    ```
-    
-2. Go to the `doc-root` directory
-    
-    ```bash
-    cd /home/jekyll/doc-root
-    ```
-    
-3. Update [jekyll](http://jekyllrb.com).
-    
-    If you have a `Gemfile` in your [GitHub Pages](https://pages.github.com), run
-    
-    ```bash
-    sudo bundle update
-    ```
-    
-    If you don't use `Gemfile`, run
-    
-    ```bash
-    sudo gem update github-pages
-    ```
-    
-4. Serve your project
-    
-    ```bash
-    jekyll serve --host=0.0.0.0 --force_polling
-    ```
-
-You can access the jekyll pages on the docker container's IP address, port 4000, or on boot2docker's IP address, port 4000.
-
-Make it a Single Command
----------------------
-
-The commands above are a lot to type. Fortunately, all of them can be put in a single line:
-
 ```bash
-docker run -v ~/my-proj:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll bash -c 'cd /home/jekyll/doc-root; sudo bundle update; jekyll serve --host=0.0.0.0 --force_polling'
+    docker run -v $(pwd):/home/jekyll/doc-root -P --expose 4000 -t -i jekyll:latest bash -c 'cd /home/jekyll/doc-root; sudo bundle update; jekyll serve --host=0.0.0.0'
 ```
 
 If you are using the `bash` shell, you can create an alias for that line like this:
 
 ```bash
-alias jekyll="docker run -v ~/my-proj:/home/jekyll/doc-root -p 4000:4000 -t -i fstab/jekyll bash -c 'cd /home/jekyll/doc-root; sudo bundle update; jekyll serve --host=0.0.0.0 --force_polling'"
+alias jekyll="docker run -v $(pwd):/home/jekyll/doc-root -P --expose 4000 -t -i jekyll:latest bash -c 'cd /home/jekyll/doc-root; sudo bundle update; jekyll serve --host=0.0.0.0'"
 ```
 
 Now, the whole thing can be run as
@@ -108,15 +62,15 @@ Building the Docker Image from Source
 
 1. Make sure [Docker](https://www.docker.com) is installed.
     
-2. Clone [fstab/docker-jekyll](https://github.com/fstab/docker-jekyll) from GitHub.
+2. Clone [webdev-docker-env](https://github.com/oicr-webdev/webdev-docker-env.git) from GitHub.
     
     ```bash
-    git clone https://github.com/fstab/docker-jekyll.git
+    git clone https://github.com/oicr-webdev/webdev-docker-env.git
     ```
     
 3. Build the docker image
     
     ```bash
-    cd docker-jekyll
-    docker build -t="fstab/jekyll" .
+    cd webdev-docker-env/docker-jekyll
+    docker build -t jekyll:docker .
     ```

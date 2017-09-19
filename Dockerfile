@@ -1,10 +1,9 @@
 FROM ubuntu:15.10
-MAINTAINER Fabian Stäber, fabian@fstab.de
 
-ENV LAST_UPDATE=2016-03-09
+ENV LAST_UPDATE=2017-09-14
 
-RUN apt-get update && \
-    apt-get upgrade -y
+#RUN apt-get update && \
+#    apt-get upgrade -y
 
 # Set the locale (I want to use German Umlauts)
 RUN locale-gen en_US.UTF-8
@@ -13,10 +12,10 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Set the timezone (change this to your local timezone)
-RUN echo "Europe/Berlin" | tee /etc/timezone
+RUN echo "America/Toronto" | tee /etc/timezone
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
-RUN apt-get -y install \
+RUN apt-get update && apt-get -y install \
     build-essential \
     nodejs \
     python \
@@ -28,7 +27,7 @@ RUN apt-get -y install \
 
 # Default ruby version is 2.1, but github-pages requires ruby 2.2
 
-RUN apt-get -y install \
+RUN apt-get update && apt-get -y install \
     ruby2.2 \
     ruby2.2-dev
 
